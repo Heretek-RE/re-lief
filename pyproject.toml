@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "re-lief"
+version = "0.1.0"
+description = "MCP server exposing LIEF (Library to Instrument Executable Formats) for cross-format binary analysis: PE, ELF, MachO, COFF, DEX, ART."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+keywords = ["mcp", "lief", "binary-analysis", "pe", "elf", "macho", "dex", "reverse-engineering"]
+authors = [{name = "John"}]
+dependencies = [
+    "mcp[cli]>=1.2",
+    "lief>=0.16",
+    "capstone>=5",
+    "pydantic>=2.6",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+re-lief = "re_lief.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
